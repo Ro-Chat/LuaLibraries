@@ -1,4 +1,4 @@
-local mt = getrawmetatable(getfenv(0))
+local mt = getrawmetatable(getfenv(1))
 local old = mt.__index
 
 setreadonly(mt, false)
