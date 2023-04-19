@@ -1,4 +1,4 @@
-Example of how to use Import.lua
+Example of how to use Import
 ```lua
 local Import = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ro-Chat/LuaLibraries/main/Import.lua"))()
 local Struct = Import("Struct")
