@@ -1,6 +1,5 @@
 getgenv().LoadedLibraries = {}
-
-return setmetatable({
+getgenv().GitImport = setmetatable({
     UrlPrefix = "https://raw.githubusercontent.com/",
     Git = "Ro-Chat/LuaLibraries/main",
     LibraryDirectory = "",
@@ -41,3 +40,5 @@ return setmetatable({
     end
   }
 )
+
+return GitImport
