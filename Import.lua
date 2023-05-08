@@ -1,15 +1,18 @@
-if not isfolder("Libraries") then
-    makefolder("Libraries")
-end
-
 getgenv().LoadedLibraries = {}
 
 return setmetatable({
     UrlPrefix = "https://raw.githubusercontent.com/",
-    Git = "Ro-Chat/LuaLibraries/main"
+    Git = "Ro-Chat/LuaLibraries/main",
+    LibraryDirectory = "",
   }, {
     __call = function(self: table, Path: string)
-        local LibPath: string = ("Libraries/%s.lib"):format(Path) -- Using .lib so I don't replace any lua files.
+         
+        local LibDir: string = ("%s/Libraries/"):format(self.LibraryDirectory)
+        if not isfolder(LibDir) then
+            makefolder(LibDir)
+        end
+            
+        local LibPath: string = ("%s%s.lib"):format(LibDir, Path) -- Using .lib so I don't replace any lua files.
         if LoadedLibraries[LibPath] then
             return LoadedLibraries[LibPath]
         end
